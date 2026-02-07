@@ -1,0 +1,30 @@
+name: Daily Cross-Intel Analysis
+
+on:
+  schedule:
+    - cron: '0 22 * * *' # 07:00 KST
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install shared-libs/llm-client
+        run: |
+          mkdir -p ../shared-libs
+          git clone https://github.com/dooosp/shared-libs.git ../shared-libs
+
+      - run: npm install
+
+      - name: Run cross-intel analysis
+        env:
+          INVEST_INTEL_URL: ${{ secrets.INVEST_INTEL_URL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node main.js
