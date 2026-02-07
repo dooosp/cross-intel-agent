@@ -7,7 +7,5 @@
   "scripts": {
     "start": "node main.js"
   },
-  "dependencies": {
-    "llm-client": "file:../shared-libs/llm-client"
-  }
+  "dependencies": {}
 }

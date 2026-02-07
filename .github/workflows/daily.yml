@@ -15,12 +15,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install shared-libs/llm-client
-        run: |
-          mkdir -p ../shared-libs
-          git clone https://github.com/dooosp/shared-libs.git ../shared-libs
-
-      - run: npm install
 
       - name: Run cross-intel analysis
         env:
