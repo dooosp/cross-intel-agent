@@ -1,0 +1,13 @@
+{
+  "name": "cross-intel-agent",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Cross-intelligence agent: invest sentiment x B2B lead correlation",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "llm-client": "file:../shared-libs/llm-client"
+  }
+}
